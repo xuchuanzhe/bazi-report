@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩桂超命理报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .font-kai {
+            font-family: "KaiTi", "STKaiti", "楷体", serif;
+            font-weight: bold;
+        }
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: #f8f9fa;
+            /* 调大整体基础字号以适应手机阅读 */
+            font-size: 1.1rem; 
+        }
+        .shishen {
+            font-size: 0.85rem;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        /* 针对手机端的文字行高优化 */
+        .leading-loose {
+            line-height: 2;
+        }
+        /* 卡片阴影增强 */
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+    </style>
+</head>
+<body class="p-2 md:p-8">
+
+    <div class="max-w-4xl mx-auto flex gap-2 mb-4 px-2">
+        <div class="h-2 flex-1 bg-[#4285F4] rounded-full"></div>
+        <div class="h-2 flex-1 bg-[#EA4335] rounded-full"></div>
+        <div class="h-2 flex-1 bg-[#FBBC05] rounded-full"></div>
+        <div class="h-2 flex-1 bg-[#34A853] rounded-full"></div>
+    </div>
+
+    <main class="max-w-4xl mx-auto bg-white card-shadow border border-gray-100 rounded-3xl overflow-hidden">
+        
+        <header class="p-8 border-b border-gray-100 bg-white">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2 font-kai">韩桂超命理报告</h1>
+            <p class="text-gray-500 text-base">——八字详批 · 许传喆制</p>
+        </header>
+
+        <section class="p-4 md:p-8 bg-gray-50">
+            <div class="grid grid-cols-4 gap-2 md:gap-4 text-center">
+                <div class="bg-white p-3 md:p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="shishen">劫财</div>
+                    <div class="text-3xl md:text-5xl font-kai">
+                        <span style="color: #EA4335;">丙</span>
+                    </div>
+                    <div class="text-3xl md:text-5xl font-kai mt-2">
+                        <span style="color: #8B4513;">辰</span>
+                    </div>
+                    <div class="shishen mt-2">伤官</div>
+                </div>
+                <div class="bg-white p-3 md:p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="shishen">正官</div>
+                    <div class="text-3xl md:text-5xl font-kai">
+                        <span style="color: #4285F4;">壬</span>
+                    </div>
+                    <div class="text-3xl md:text-5xl font-kai mt-2">
+                        <span style="color: #8B4513;">辰</span>
+                    </div>
+                    <div class="shishen mt-2">伤官</div>
+                </div>
+                <div class="bg-white p-3 md:p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="shishen">日主</div>
+                    <div class="text-3xl md:text-5xl font-kai">
+                        <span style="color: #EA4335;">丁</span>
+                    </div>
+                    <div class="text-3xl md:text-5xl font-kai mt-2">
+                        <span style="color: #EA4335;">巳</span>
+                    </div>
+                    <div class="shishen mt-2">劫财</div>
+                </div>
+                <div class="bg-white p-3 md:p-4 rounded-2xl shadow-sm border border-gray-100">
+                    <div class="shishen">七杀</div>
+                    <div class="text-3xl md:text-5xl font-kai">
+                        <span style="color: #4285F4;">癸</span>
+                    </div>
+                    <div class="text-3xl md:text-5xl font-kai mt-2">
+                        <span style="color: #34A853;">卯</span>
+                    </div>
+                    <div class="shishen mt-2">偏印</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-6 md:p-8 border-b border-gray-100">
+            <h2 class="text-2xl font-bold mb-6 text-[#4285F4] flex items-center">
+                <span class="mr-2">📊</span> 五行能量分布
+            </h2>
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div id="radar-chart" class="h-72 w-full md:w-80 order-2 md:order-1"></div>
+                <div class="flex-1 space-y-4 text-gray-700 order-1 md:order-2">
+                    <p class="mb-4 text-lg">丁火日元生于辰月，格局倾向<strong>“伤官合杀”</strong>。命局火土偏重，水木相滋。</p>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-[#FBBC05] pl-4">
+                            <span class="font-bold text-lg" style="color:#FBBC05">金 (财星)：</span>
+                            <span class="text-sm text-gray-400">暗藏财星。</span> 
+                            <p class="mt-1">命里金气不显，但藏在巳火中。所以你有“小钱”且懂投资（如合金、股票）。</p>
+                        </div>
+                        <div class="border-l-4 border-[#34A853] pl-4">
+                            <span class="font-bold text-lg" style="color:#34A853">木 (印星)：</span>
+                            <span class="text-sm text-gray-400">印绶护身。</span> 
+                            <p class="mt-1">时柱卯木为印，代表贵人与晚辈。你这辈子容易得首长、长辈帮衬，晚年也能得女儿福。</p>
+                        </div>
+                        <div class="border-l-4 border-[#4285F4] pl-4">
+                            <span class="font-bold text-lg" style="color:#4285F4">水 (官杀)：</span>
+                            <span class="text-sm text-gray-400">官杀混杂。</span> 
+                            <p class="mt-1">天干壬癸水并见，所以你性格随和、不爱争抢。适合当“副手”或“闲职”。</p>
+                        </div>
+                        <div class="border-l-4 border-[#EA4335] pl-4">
+                            <span class="font-bold text-lg" style="color:#EA4335">火 (比劫)：</span>
+                            <span class="text-sm text-gray-400">身强根固。</span> 
+                            <p class="mt-1">丁火坐巳，火力旺。这意味着你内心其实很有主见，认准的事很难改。</p>
+                        </div>
+                        <div class="border-l-4 border-[#8B4513] pl-4">
+                            <span class="font-bold text-lg" style="color:#8B4513">土 (食伤)：</span>
+                            <span class="text-sm text-gray-400">伤官生财。</span> 
+                            <p class="mt-1">辰土湿土重，代表你的技术流倾向（如开车）。土多克水，也是血糖问题的根。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-6 md:p-8 space-y-10">
+            <div>
+                <h3 class="text-2xl font-bold flex items-center gap-2 mb-6">
+                    <span class="w-1.5 h-8 bg-[#EA4335] rounded-full"></span> 性格优劣深度解析
+                </h3>
+                <div class="grid grid-cols-1 gap-6 text-gray-700 leading-loose">
+                    <div class="bg-green-50 p-6 rounded-2xl border border-green-100 shadow-sm">
+                        <p class="font-bold text-green-800 mb-3 text-xl">优势：仁德、随和、近贵</p>
+                        <ul class="space-y-2">
+                            <li><strong>• 天生贵人缘：</strong>你这人没架子，心很软，这种性格极得贵人信任与提拔。</li>
+                            <li><strong>• 丁火柔中：</strong>性格温润，不爱发脾气，是个极佳的倾听者和执行者。</li>
+                            <li><strong>• 情绪稳定：</strong>在复杂环境下能安于现状，这种知足常乐的心态非常难得。</li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100 shadow-sm">
+                        <p class="font-bold text-red-800 mb-3 text-xl">短板：胆量、决断、孤寂</p>
+                        <ul class="space-y-2">
+                            <li><strong>• 胆气不足：</strong>官杀克身严重，导致胆子小，怕黑、怕孤独，这是心气不足的表现。</li>
+                            <li><strong>• 容易被“卖惨”：</strong>因为心太软，容易在感情和金钱上被“勒索”。</li>
+                            <li><strong>• 缺乏主见：</strong>面对大事容易逃避，更倾向于闲事与琐碎事。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold flex items-center gap-2 mb-4 text-[#34A853]">
+                    <span class="w-1.5 h-8 bg-[#34A853] rounded-full"></span> 婚姻与子女缘分
+                </h3>
+                <div class="text-gray-700 leading-loose space-y-4">
+                    <p><strong>婚姻起伏：</strong>命局中妻星（金）不显，且日支坐劫财。这就注定了第一段婚姻容易遭遇“财星受损”，容易因钱财纠纷而纠缠，这是命中劫财在起作用，建议在财务上做好物理隔离。</p>
+                    <p><strong>现任缘分：</strong>第二任妻子相对较好，是因为随着年岁增长，火土之气渐趋平稳。目前的家庭环境对你是一种保护，要多珍惜当下的平静。</p>
+                    <p><strong>子女福气：</strong>时柱坐卯木偏印。女儿早年不顺，但卯辰相穿后通过修补已无大碍。卯木是你的喜用神，说明女儿是你晚年的依靠，缘分非常深厚。</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold flex items-center gap-2 mb-4 text-[#FBBC05]">
+                    <span class="w-1.5 h-8 bg-[#FBBC05] rounded-full"></span> 事业财运指引
+                </h3>
+                <div class="text-gray-700 leading-loose space-y-4">
+                    <p><strong>官职变动：</strong>现走<strong>戊戌大运</strong>，今年换领导升小官，属于“伤官见官”。这职位的特点是：<strong>名声好听，但责任大、是非多</strong>。你现在的策略应该是“多点头、少伸手”。千万不要去管具体的人事安排和资金审批，挂个闲职最能保平安。</p>
+                    <p><strong>副业投资：</strong>命局巳中藏庚金，对金属、股票等生意有天然的灵感。炒股可以，但只适合<strong>“小钱玩票”</strong>。因为大运戌土是丁火的墓库，上杠杆大笔投入极易被套牢，切记不要动用养老本。</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-bold flex items-center gap-2 mb-4 text-[#4285F4]">
+                    <span class="w-1.5 h-8 bg-[#4285F4] rounded-full"></span> 未来五年流年走势
+                </h3>
+                <div class="space-y-4 text-gray-700">
+                    <div class="p-4 bg-red-50 rounded-xl border-l-4 border-red-400">
+                        <strong>2026 丙午年：</strong> <span class="text-red-600 font-bold">岁运逢劫，重点关注。</span> 此年火气极旺，最不利血糖稳定，心脑血管也要注意。投资方面绝对不可听信他人，防范因“卖惨”导致的破财。
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-xl border-l-4 border-blue-400">
+                        <strong>2027 丁未年：</strong> 运势平稳转缓。未土为燥土，虽然口舌是非减少，但仍需注意饮食清淡。这一年家庭琐事较多，保持知足常乐的心态即可平安度过。
+                    </div>
+                    <div class="p-4 bg-green-50 rounded-xl border-l-4 border-green-400">
+                        <strong>2028 戊申年：</strong> <span class="text-green-600 font-bold">财进库房，运势上升。</span> 申子辰三合水局，水火既济，这年心情舒畅，副业（如合金生意）容易有好的回报，甚至有贵人登门。
+                    </div>
+                    <div class="p-4 bg-green-50 rounded-xl border-l-4 border-green-400">
+                        <strong>2029 己酉年：</strong> 延续上年好运。酉金为正财，代表稳定的入账。这一年利于与晚辈、女儿聚会，家庭氛围温馨，身体状态也较为平稳。
+                    </div>
+                    <div class="p-4 bg-blue-50 rounded-xl border-l-4 border-blue-400">
+                        <strong>2030 庚戌年：</strong> 财库被冲。这年容易有大额开支，可能是为了房屋或大件物品。此时大运与流年形成辰戌冲，虽有奔波但无大碍，切记财不露白。
+                    </div>
+            </div>
+
+            <div class="mt-10">
+                <h3 class="text-2xl font-bold flex items-center gap-2 mb-6 text-[#4285F4]">
+                    <span class="w-1.5 h-8 bg-[#4285F4] rounded-full"></span> 健康福祉与生活建议
+                </h3>
+                
+                <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 shadow-sm">
+                        <p class="font-bold text-blue-800 mb-3 text-xl flex items-center gap-2">
+                            <span>💡</span> 血糖与循环调理
+                        </p>
+                        <div class="space-y-4">
+                            <p>你的糖尿病根源在命理上表现为<strong>“土厚埋金、水气不通”</strong>。在中医里这叫“消渴”，是因为体内的火气把水分烤干了。所以你经常容易犯困，这正是血液粘稠、气血循环不畅的表现。<strong>饮食上要极度控制糖分和燥热食物。</strong></p>
+                            
+                            <div class="mt-4 pt-4 border-t border-blue-200 text-sm md:text-base italic text-blue-900">
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><strong>庚金泄土：</strong> 土多需要金来泄。平时可以佩戴一块<strong>白色的手表</strong>或者<strong>金属饰品</strong>，能起到泄掉体内淤积“土气”的作用，有助于气血循环。</li>
+                                    <li><strong>坎水滋润：</strong> 你的命局缺水。居家摆放中，可以在北面放一盆<strong>水生植物</strong>。从玄学角度看，这叫“补北方水气”，对缓解体内的火燥有潜移默化的好处。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="px-2">
+                        <p class="font-bold text-lg mb-4">胆气调理与建议：</p>
+                        <p class="mb-6">日元丁火受官杀克制太重导致胆气不足。建议在日常生活中通过以下方式“补水降火”：</p>
+                        
+                        <div class="grid grid-cols-1 gap-6">
+                            <div class="flex gap-4">
+                                <div class="flex-none w-1 bg-blue-300 rounded-full my-1"></div>
+                                <div>
+                                    <p class="font-bold text-gray-900">1. 环境调节</p>
+                                    <p class="text-gray-600">卧室多用暖黄色灯光，睡觉时窗帘拉好。温暖色调能给心理支撑，阻隔黑暗能减少心理压迫。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-none w-1 bg-blue-300 rounded-full my-1"></div>
+                                <div>
+                                    <p class="font-bold text-gray-900">2. 保持钓鱼</p>
+                                    <p class="text-gray-600">这是你命中最好的“补水利尿”运动。静坐水边能排解体内火毒，滋润命局，对稳定血糖有奇效。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-none w-1 bg-blue-300 rounded-full my-1"></div>
+                                <div>
+                                    <p class="font-bold text-gray-900">3. 接触自然</p>
+                                    <p class="text-gray-600">没事多去公园走走。“木能疏土”，绿植环境既能化解多余土气，也能让心情变开阔，减少孤寂感。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        var chartDom = document.getElementById('radar-chart');
+        var myChart = echarts.init(chartDom);
+        var option = {
+            radar: {
+                indicator: [
+                    { name: '金 (财)', max: 100 },
+                    { name: '木 (印)', max: 100 },
+                    { name: '水 (官)', max: 100 },
+                    { name: '火 (比)', max: 100 },
+                    { name: '土 (食)', max: 100 }
+                ],
+                shape: 'circle',
+                splitNumber: 4,
+                axisName: { color: '#999', fontSize: 14, fontWeight: 'bold' },
+                splitLine: { lineStyle: { color: '#eee' } },
+                splitArea: { show: false }
+            },
+            series: [{
+                type: 'radar',
+                data: [{
+                    value: [35, 75, 55, 90, 85],
+                    itemStyle: { color: '#4285F4' },
+                    areaStyle: { opacity: 0.2 },
+                    lineStyle: { width: 3 }
+                }]
+            }]
+        };
+        myChart.setOption(option);
+        window.addEventListener('resize', function() {
+            myChart.resize();
+        });
+    </script>
+</body>
+</html>
